@@ -7,8 +7,10 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/blogs")
+@RequestMapping("/api/blogs")
 public class BlogController {
     @Autowired
     private BlogService blogService;
@@ -24,5 +26,11 @@ public class BlogController {
     @CircuitBreaker(name = BLOG_SERVICE)
     public ResponseTemplateVO getBlogWithId(@PathVariable("id") int blogId) {
         return blogService.getBlogWithId(blogId);
+    }
+
+    @GetMapping("/")
+    @CircuitBreaker(name = BLOG_SERVICE)
+    public List<ResponseTemplateVO> getBlogs() {
+        return blogService.getBlogs();
     }
 }

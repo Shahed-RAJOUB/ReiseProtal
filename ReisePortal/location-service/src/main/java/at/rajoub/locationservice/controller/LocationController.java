@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/locations")
+@RequestMapping("/api/locations")
 @Slf4j
 public class LocationController {
     @Autowired

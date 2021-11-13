@@ -12,26 +12,23 @@
         </div>
       </div>
 
-      <section class="section">
-        <div class="columns">
-          <div class="column is-8 is-offset-2">
+      <section class="section" *ngIf="blogs$ | async as blogs ">
+        <div class="columns" *ngFor="let blog of blogs">
+          <div class="column is-8 is-offset-2" >
             <div class="content is-medium">
               <h2 class="subtitle is-4">December 25, 2018</h2>
-              <h1 class="title">Title of the Blog</h1>
+              <h1 class="title">{{blog.blog?.blogTitle}}</h1>
               <button class="button is-success is-large" data-target="modal" (click)="clickEvent()">Show The Blog
               </button>
               <div [ngClass]="status ? 'modal is-active is-clipped' : 'modal'">
                 <div class="modal-background"></div>
                 <div class="modal-card">
                   <header class="modal-card-head">
-                    <p class="modal-card-title">Title of the Blog</p>
+                    <p class="modal-card-title">{{blog.blog?.blogTitle}}</p>
                     <button class="delete" aria-label="close" (click)="clickEvent()"></button>
                   </header>
                   <section class="modal-card-body">
-                    <p>This is a starter template for creating a beautiful, customizable blog with minimal
-                      effort. You’ll only have to change a few settings and you’re ready to go. As with all Jigsaw
-                      sites,
-                      configuration settings can be found in config</p>
+                    <p>{{blog.blog?.blogText}}</p>
                   </section>
                   <footer class="modal-card-foot">
                     <nav class="level is-mobile">

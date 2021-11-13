@@ -10,6 +10,9 @@ import at.rajoub.blogservice.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class BlogService {
     @Autowired
@@ -38,5 +41,22 @@ public class BlogService {
         vo.setLocation(location);
 
         return vo;
+    }
+
+    public List<ResponseTemplateVO> getBlogs() {
+        List<ResponseTemplateVO> voList =new ArrayList<>();
+        List<Blog> blogs = blogRepository.findAll();
+        for (int i= 0 ; i < blogs.size() ; i++){
+            ResponseTemplateVO vo = new ResponseTemplateVO();
+            Blog blog = blogs.get(i);
+            Author author = authorServiceClient.findAuthorById(blog.getAuthorId());
+            Location location = locationServiceClient.findLocationById(blog.getLocationId());
+
+            vo.setBlog(blog);
+            vo.setAuthor(author);
+            vo.setLocation(location);
+            voList.add(vo);
+        }
+        return voList;
     }
 }

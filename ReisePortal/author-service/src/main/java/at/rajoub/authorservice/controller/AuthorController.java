@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/authors")
+@RequestMapping("/api/authors")
 @Slf4j
 public class AuthorController {
     @Autowired

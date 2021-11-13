@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @FeignClient("AUTHOR-SERVICE")
 @LoadBalancerClient(name = "AUTHOR-SERVICE")
-@RequestMapping("/authors")
+@RequestMapping("/api/authors")
 public interface AuthorServiceClient {
     @GetMapping("/{id}")
     Author findAuthorById(@PathVariable("id") int authorId);

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @FeignClient("LOCATION-SERVICE")
 @LoadBalancerClient(name = "LOCATION-SERVICE")
-@RequestMapping("/locations")
+@RequestMapping("/api/locations")
 public interface LocationServiceClient {
     @GetMapping("/{id}")
     public Location findLocationById(@PathVariable("id") int locationId);

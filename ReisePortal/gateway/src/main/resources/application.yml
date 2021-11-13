@@ -5,15 +5,15 @@ spring:
         - id: AUTHOR-SERVICE
           uri: lb://AUTHOR-SERVICE
           predicates:
-            - Path=/authors/**
+            - Path=/api/authors/**
         - id: BLOG-SERVICE
           uri: lb://BLOG-SERVICE
           predicates:
-            - Path=/blogs/**
+            - Path=/api/blogs/**
         - id: LOCATION-SERVICE
           uri: lb://LOCATION-SERVICE
           predicates:
-            - Path=/locations/**
+            - Path=/api/locations/**
 
   application:
     name: gateway

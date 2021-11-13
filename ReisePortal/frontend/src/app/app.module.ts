@@ -8,6 +8,8 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { StatisticViewComponent } from './statistic-view/statistic-view.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { CommonModule, NgLocaleLocalization, NgLocalization } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,11 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    CommonModule,
   ],
-  providers: [],
+  providers: [{ provide: NgLocalization, useClass: NgLocaleLocalization }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
