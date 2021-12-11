@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -21,5 +22,6 @@ public class Blog {
     private long blogNumberOfViews;
     private int authorId;
     private int locationId;
+    private LocalDate blogDate;
 
 }
