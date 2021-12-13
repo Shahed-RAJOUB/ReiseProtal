@@ -16,46 +16,62 @@
                                                                                               aria-hidden="true"></i></a>
           </div>
         </div>
-        <div class="column is-two-thirds has-text-left">
+        <form class="column is-two-thirds has-text-left" [formGroup]="BlogForm">
+        <div >
           <div class="field">
             <label class="label">Author Name</label>
             <div class="control">
-              <input class="input is-medium" type="text">
+              <input class="input is-medium" type="text" formControlName="authorName" placeholder="Name" [(ngModel)]="author.authorName">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Author Email</label>
+            <div class="control">
+              <input class="input is-medium" type="text" formControlName="email" placeholder="Email" [(ngModel)]="author.authorEmail">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Location Name</label>
+            <div class="control">
+              <input class="input is-medium" type="text" formControlName="locationName" placeholder="Sight" [(ngModel)]="location.locationName">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">City</label>
+            <div class="control">
+              <input class="input is-medium" type="text" formControlName="locationCity" placeholder="City" [(ngModel)]="location.locationCity">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Street</label>
+            <div class="control">
+              <input class="input is-medium" type="text" formControlName="locationStreet" placeholder="Street" [(ngModel)]="location.locationStreet">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Zip Code</label>
+            <div class="control">
+              <input class="input is-medium" type="text" formControlName="locationZip" placeholder="Zip" [(ngModel)]="location.locationZip">
             </div>
           </div>
           <div class="field">
             <label class="label">Blog Title</label>
             <div class="control">
-              <input class="input is-medium" type="text">
+              <input class="input is-medium" type="text" formControlName="title" placeholder="Title" [(ngModel)]="blog.blogTitle">
             </div>
           </div>
           <div class="field">
             <label class="label">Text</label>
             <div class="control">
-              <textarea class="textarea is-medium"></textarea>
+              <textarea class="textarea is-medium" formControlName="locationName" placeholder="Text" [(ngModel)]="blog.blogText"></textarea>
             </div>
-          </div>
-          <div class="file is-success has-name">
-            <label class="file-label">
-              <input class="file-input" type="file" name="resume">
-              <span class="file-cta">
-              <span class="file-icon">
-                <i class="fa fa-upload"></i>
-              </span>
-              <span class="file-label">
-                Info file…
-              </span>
-              </span>
-              <span class="file-name">
-                Screen Shot 2017-07-29 at 15.54.25.png
-              </span>
-            </label>
           </div>
           <br>
           <div class="control">
-            <button type="submit" class="button is-success has-text-weight-medium is-medium ">Send Message</button>
+            <button type="submit" class="button is-success has-text-weight-medium is-medium " (click)="onSendBlog()">Send Message</button>
           </div>
         </div>
+        </form>
       </div>
     </div>
   </div>

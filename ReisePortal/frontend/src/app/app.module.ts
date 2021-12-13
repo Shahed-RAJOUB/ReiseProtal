@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CommonModule, NgLocaleLocalization, NgLocalization } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: NgLocalization, useClass: NgLocaleLocalization }],
   bootstrap: [AppComponent]
