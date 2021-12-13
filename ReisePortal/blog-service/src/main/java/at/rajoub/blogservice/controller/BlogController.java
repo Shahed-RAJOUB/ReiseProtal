@@ -1,6 +1,6 @@
 package at.rajoub.blogservice.controller;
 
-import at.rajoub.blogservice.ValueObject.ResponseTemplateVO;
+import at.rajoub.blogservice.model.BlogEntry;
 import at.rajoub.blogservice.entity.Blog;
 import at.rajoub.blogservice.service.BlogService;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/blogs")
@@ -24,13 +25,13 @@ public class BlogController {
 
     @GetMapping("/{id}")
     @CircuitBreaker(name = BLOG_SERVICE)
-    public ResponseTemplateVO getBlogWithId(@PathVariable("id") int blogId) {
+    public Optional<BlogEntry> getBlogWithId(@PathVariable("id") long blogId) {
         return blogService.getBlogWithId(blogId);
     }
 
     @GetMapping("/")
     @CircuitBreaker(name = BLOG_SERVICE)
-    public List<ResponseTemplateVO> getBlogs() {
+    public List<BlogEntry> getBlogs() {
         return blogService.getBlogs();
     }
 }
