@@ -24,9 +24,12 @@ export class UserViewComponent implements OnInit {
     this.blogs$= this.userService.getBlogs();
     this.Authors$= this.userService.getAuthors();
   }
-  //TODO: add date and add update function for review 
-  clickEvent(): any {
-    this.status = !this.status;
+  //TODO: add date and add update function for review
+  clickEvent(id: any): any {
+    if(this.status === true){
+      this.userService.incrementViews(id)
+      this.status = !this.status;
+    }
   }
 
 }

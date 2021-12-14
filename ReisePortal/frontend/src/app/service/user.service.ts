@@ -9,14 +9,31 @@ import { Author } from '../model/author';
   providedIn: 'root'
 })
 export class UserService {
-  
+
+  incrementViews(id: any) {
+    return this.http.put('/api/blogs/',id);
+  }
+
   constructor(private http: HttpClient) { }
 
   getBlogs(){
     return this.http.get<Response[]>('/api/blogs/');
   }
- 
+
   getAuthors(){
     return this.http.get<Author[]>('/api/authors/')
   }
+
+  getPopularLocation(): Observable<any> | undefined {
+    return this.http.get<any>('/api/blogsFamousLocation/');
+  }
+
+  getPopularBlog(): Observable<any> | undefined {
+    return this.http.get<any>('/api/blogsFamousBlog/');
+  }
+
+  getBlogsVisits(): Observable<any> | undefined {
+    return this.http.get<any>('/api/blogsVisits/');
+  }
+
 }

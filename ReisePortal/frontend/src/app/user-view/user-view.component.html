@@ -18,14 +18,14 @@
             <div class="content is-medium">
               <h2 class="subtitle is-4">December 25, 2018</h2>
               <h1 class="title">{{blog.blog?.blogTitle}}</h1>
-              <button class="button is-success is-large" data-target="modal" (click)="clickEvent()">Show The Blog
+              <button class="button is-success is-large" data-target="modal" (click)="clickEvent(blog.blog?.blogId)">Show The Blog
               </button>
               <div [ngClass]="status ? 'modal is-active is-clipped' : 'modal'">
                 <div class="modal-background"></div>
                 <div class="modal-card">
                   <header class="modal-card-head">
                     <p class="modal-card-title">{{blog.blog?.blogTitle}}</p>
-                    <button class="delete" aria-label="close" (click)="clickEvent()"></button>
+                    <button class="delete" aria-label="close" (click)="clickEvent(blog.blog?.blogId)"></button>
                   </header>
                   <section class="modal-card-body">
                     <p>{{blog.blog?.blogText}}</p>
