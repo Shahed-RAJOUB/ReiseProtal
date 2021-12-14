@@ -4,26 +4,26 @@
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">Tweets</p>
-      <p class="title">3,456</p>
+      <p class="heading">Most popular location</p>
+      <p class="title">{{ FamousLocation$ | async }}</p>
     </div>
   </div>
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">Following</p>
-      <p class="title">123</p>
+      <p class="heading">Most popular blog</p>
+      <p class="title">{{ FamousblogTitle$ | async }}</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div >
+      <p class="heading">number of Authors</p>
+      <p class="title" >{{ (Authors$ | async).length }}</p>
     </div>
   </div>
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">Followers</p>
-      <p class="title">456K</p>
-    </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">Likes</p>
-      <p class="title">789</p>
+      <p class="heading">number of visits</p>
+      <p class="title">{{ blogsVisits$ | async }}</p>
     </div>
   </div>
 </nav>
