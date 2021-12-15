@@ -1,6 +1,7 @@
 package at.rajoub.blogservice.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "blogs")
+@Builder(toBuilder = true)
 public class Blog {
 
     @Id
@@ -24,7 +26,7 @@ public class Blog {
 
     private String blogTitle;
     private String blogText;
-    private Long blogNumberOfViews;
+    private long blogNumberOfViews;
     private LocalDate blogDate;
 
     private int locationId;

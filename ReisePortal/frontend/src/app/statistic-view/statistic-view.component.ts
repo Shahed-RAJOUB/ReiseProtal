@@ -1,28 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Author } from '../model/author';
-import {Response } from '../model/response'
-import { UserService } from '../service/user.service';
+import {Component} from '@angular/core';
+import {Observable} from 'rxjs';
+import {UserService} from '../service/user.service';
+import {BlogStats} from '../model/blog-stats.model';
 
 @Component({
   selector: 'app-statistic-view',
   templateUrl: './statistic-view.component.html',
   styleUrls: ['./statistic-view.component.css']
 })
-export class StatisticViewComponent implements OnInit {
+export class StatisticViewComponent {
 
-  Authors$: Observable<Author[]> | undefined;
-  blogsVisits$: Observable<any> | undefined;
-  FamousblogTitle$: Observable<any> | undefined;
-  FamousLocation$: Observable<any> | undefined;
+  blogStats$: Observable<BlogStats[]>;
 
-  constructor(public userService :UserService) { }
-
-  ngOnInit(): void {
-    this.blogsVisits$= this.userService.getBlogsVisits();
-    this.FamousblogTitle$= this.userService.getPopularBlog();
-    this.FamousLocation$= this.userService.getPopularLocation();
-    this.Authors$= this.userService.getAuthors();
+  constructor(public userService: UserService) {
+    this.blogStats$ = this.userService.getBlogStats();
   }
 
+  getSpecificBlogStat(type: string, blogstats: BlogStats[]): any | undefined {
+    console.log(blogstats);
+    return blogstats.find(it => it.type === type)?.stats;
+  }
 }

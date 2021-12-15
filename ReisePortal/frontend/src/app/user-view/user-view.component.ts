@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Response } from '../model/response'
-import { UserService } from '../service/user.service';
-import { CommonModule } from '@angular/common';
-import { Blog } from '../model/blog';
-import { Author } from '../model/author';
-import { map } from 'rxjs/operators';
+import {BlogEntry} from '../model/blog-entry';
+import {UserService} from '../service/user.service';
+import {Author} from '../model/author';
 
 @Component({
   selector: 'app-user-view',
@@ -14,22 +11,22 @@ import { map } from 'rxjs/operators';
 })
 export class UserViewComponent implements OnInit {
 
-  blogs$: Observable<Response[]> | undefined;
+  blogs$: Observable<BlogEntry[]> | undefined;
   Authors$: Observable<Author[]> | undefined;
 
-  constructor(public userService :UserService) {
+  constructor(public userService: UserService) {
   }
+
   status = false;
+
   ngOnInit(): void {
-    this.blogs$= this.userService.getBlogs();
-    this.Authors$= this.userService.getAuthors();
+    this.blogs$ = this.userService.getBlogs();
+    this.Authors$ = this.userService.getAuthors();
   }
+
   //TODO: add date and add update function for review
   clickEvent(id: any): any {
-    if(this.status === true){
-      this.userService.incrementViews(id)
-      this.status = !this.status;
-    }
+    this.status = !this.status;
   }
 
 }

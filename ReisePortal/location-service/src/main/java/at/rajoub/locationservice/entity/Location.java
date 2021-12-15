@@ -13,8 +13,8 @@ import javax.persistence.*;
 @Table(name = "locations")
 public class Location {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int locationId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer locationId;
     private String locationName;
     private String locationCity;
     private String locationStreet;

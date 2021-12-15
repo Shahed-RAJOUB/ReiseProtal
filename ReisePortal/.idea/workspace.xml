@@ -1,41 +1,202 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d9ac877-6961-425c-ad2e-d3455125a084" name="Changes" comment="" />
+    <list default="true" id="45f993c4-2fac-4921-a1ef-9b78f4f50b7e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/model/BlogStats.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/model/blog-stats.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/author-service/src/main/java/at/rajoub/authorservice/entity/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/author-service/src/main/java/at/rajoub/authorservice/entity/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/author-service/src/main/java/at/rajoub/authorservice/repository/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/author-service/src/main/java/at/rajoub/authorservice/repository/AuthorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/author-service/src/main/java/at/rajoub/authorservice/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/author-service/src/main/java/at/rajoub/authorservice/service/AuthorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/author-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/author-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/client/AuthorServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/client/AuthorServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/client/LocationServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/client/LocationServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/entity/Blog.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/entity/Blog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/model/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/model/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/model/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/repository/BlogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/repository/BlogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/service/BlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/service/BlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud.config-server/src/main/java/at/rajoub/cloud/configserver/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud.config-server/src/main/java/at/rajoub/cloud/configserver/CloudConfigApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/author-view/author-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/author-view/author-view.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/author-view/author-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/author-view/author-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/model/response.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/model/blog-entry.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/service/author.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/author.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/service/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/statistic-view/statistic-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/statistic-view/statistic-view.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/statistic-view/statistic-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/statistic-view/statistic-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/user-view/user-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/user-view/user-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/location-service/src/main/java/at/rajoub/locationservice/entity/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/location-service/src/main/java/at/rajoub/locationservice/entity/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/location-service/src/main/java/at/rajoub/locationservice/repository/LocationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/location-service/src/main/java/at/rajoub/locationservice/repository/LocationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/location-service/src/main/java/at/rajoub/locationservice/service/LocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/location-service/src/main/java/at/rajoub/locationservice/service/LocationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/location-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/location-service/src/main/resources/application.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1yznF97hOlQ7kjpMWYAsyYf3pu9" />
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="22KTKQDAhkiTAhS8i1djPOaIyNf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/discovery" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/app/model" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.37984496" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="ts.external.directory.path" value="Z:\IdeaProjects\ReiseProtal\ReisePortal\frontend\node_modules\typescript\lib" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="Z:\IdeaProjects\ReiseProtal\ReisePortal\frontend\src\app\model" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BlogServiceApplication">
+    <configuration name="generated-requests#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="AuthorServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="author-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.rajoub.authorservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="at.rajoub.authorservice.AuthorServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BlogServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="blog-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.rajoub.blogservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="at.rajoub.blogservice.BlogServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="gateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.rajoub.gateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="at.rajoub.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LocationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="location-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.rajoub.locationservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="at.rajoub.locationservice.LocationServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.BlogServiceApplication" />
+        <item itemvalue="Spring Boot.LocationServiceApplication" />
+        <item itemvalue="Spring Boot.AuthorServiceApplication" />
+        <item itemvalue="HTTP Request.generated-requests#2" />
+        <item itemvalue="Spring Boot.GatewayApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3d9ac877-6961-425c-ad2e-d3455125a084" name="Changes" comment="" />
-      <created>1633263178398</created>
+      <changelist id="45f993c4-2fac-4921-a1ef-9b78f4f50b7e" name="Changes" comment="" />
+      <created>1639585214968</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1633263178398</updated>
-      <workItem from="1633263179643" duration="90000" />
-      <workItem from="1635495771627" duration="5000" />
+      <updated>1639585214968</updated>
+      <workItem from="1639585217402" duration="2460000" />
+      <workItem from="1639587715519" duration="7687000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/author-service/src/main/java/at/rajoub/authorservice/service/AuthorService.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/blog-service/src/main/java/at/rajoub/blogservice/service/BlogService.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

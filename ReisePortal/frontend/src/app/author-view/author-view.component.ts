@@ -1,24 +1,39 @@
-import { Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
-import { FormBuilder, FormControlName, FormGroup } from '@angular/forms';
-import { Author } from '../model/author';
-import { Blog } from '../model/blog';
-import { Location } from '../model/location';
-import { Response } from '../model/response';
-import { AuthorService } from '../service/author.service';
+import {Component} from '@angular/core';
+import {AuthorService} from '../service/author.service';
+import {BlogEntry} from '../model/blog-entry';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-author-view',
   templateUrl: './author-view.component.html',
   styleUrls: ['./author-view.component.css']
 })
-export class AuthorViewComponent implements OnInit {
+export class AuthorViewComponent {
 
-  constructor(private authorService: AuthorService) { }
-
-  ngOnInit(): void {
+  constructor(private authorService: AuthorService,
+              private router: Router) {
   }
-  // @ts-ignore
-  onSendBlog(data) {
-    this.authorService.sendBlog(data)
+
+  onSendBlog(data: any) {
+    console.log(data);
+    const blogEntry = {
+      blog: {
+        blogText: data.text,
+        blogTitle: data.title
+      },
+      author: {
+        authorEmail: data.email,
+        authorName: data.authorName
+      },
+      location: {
+        locationName: data.locationName,
+        locationCity: data.locationCity,
+        locationStreet: data.locationStreet,
+        locationZip: data.locationZip
+      }
+    } as BlogEntry;
+    this.authorService.sendBlog(blogEntry).subscribe(
+      res => this.router.navigateByUrl('/user-view'),
+      err => alert('Exception happened :('));
   }
 }

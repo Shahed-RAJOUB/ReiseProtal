@@ -1,39 +1,27 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Response } from '../model/response'
-import { map } from 'rxjs/operators';
-import { Author } from '../model/author';
+import {BlogEntry} from '../model/blog-entry';
+import {Author} from '../model/author';
+import {BlogStats} from '../model/blog-stats.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  incrementViews(id: any) {
-    return this.http.put('/api/blogs/',id);
+  constructor(private http: HttpClient) {
   }
 
-  constructor(private http: HttpClient) { }
-
-  getBlogs(){
-    return this.http.get<Response[]>('/api/blogs/');
+  getBlogs(): Observable<BlogEntry[]> {
+    return this.http.get<BlogEntry[]>('/api/blogs/');
   }
 
-  getAuthors(){
-    return this.http.get<Author[]>('/api/authors/')
+  getAuthors() {
+    return this.http.get<Author[]>('/api/authors/');
   }
 
-  getPopularLocation(): Observable<any> | undefined {
-    return this.http.get<any>('/api/blogsFamousLocation/');
+  getBlogStats(): Observable<BlogStats[]> {
+    return this.http.get<BlogStats[]>('/api/blogs/stats');
   }
-
-  getPopularBlog(): Observable<any> | undefined {
-    return this.http.get<any>('/api/blogsFamousBlog/');
-  }
-
-  getBlogsVisits(): Observable<any> | undefined {
-    return this.http.get<any>('/api/blogsVisits/');
-  }
-
 }
