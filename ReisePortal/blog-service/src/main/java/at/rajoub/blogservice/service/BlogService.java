@@ -28,7 +28,9 @@ public class BlogService {
     private final LocationServiceClient locationServiceClient;
 
     public void saveBlogEntry(Blog blog) {
-        blogRepository.save(blog);
+        blogRepository.save(blog.toBuilder()
+                .blogDate(LocalDate.now())
+                .build());
     }
 
     @NewSpan

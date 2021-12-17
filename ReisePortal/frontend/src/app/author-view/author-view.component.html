@@ -17,60 +17,47 @@
           </div>
         </div>
         <form class="column is-two-thirds has-text-left" #BlogForm="ngForm" (ngSubmit)="onSendBlog(BlogForm.value)">
-        <div >
-          <div class="field">
-            <label class="label">Author Name</label>
+          <div>
+
+            <div class="field">
+              <label class="label">Location</label>
+              <div class="control">
+                <div class="select">
+                  <select name="locationId" ngModel>
+                    <option *ngFor="let location of locations$ | async" [value]="location.locationId">{{location.locationName}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Author</label>
+              <div class="control">
+                <div class="select">
+                  <select name="authorId" ngModel>
+                    <option *ngFor="let author of authors$ | async" [value]="author.authorId">{{author.authorName}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Blog Title</label>
+              <div class="control">
+                <input class="input is-medium" type="text" name="title" placeholder="Title" ngModel>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Text</label>
+              <div class="control">
+                <textarea class="textarea is-medium" name="text" placeholder="Text" ngModel></textarea>
+              </div>
+            </div>
+            <br>
             <div class="control">
-              <input class="input is-medium" type="text" name="authorName" placeholder="Name" ngModel>
+              <button type="submit" class="button is-success has-text-weight-medium is-medium ">Send Message</button>
             </div>
           </div>
-          <div class="field">
-            <label class="label">Author Email</label>
-            <div class="control">
-              <input class="input is-medium" type="text" name="email" placeholder="Email" ngModel>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Location Name</label>
-            <div class="control">
-              <input class="input is-medium" type="text" name="locationName" placeholder="Sight" ngModel>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">City</label>
-            <div class="control">
-              <input class="input is-medium" type="text" name="locationCity" placeholder="City" ngModel>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Street</label>
-            <div class="control">
-              <input class="input is-medium" type="text" name="locationStreet" placeholder="Street" ngModel>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Zip Code</label>
-            <div class="control">
-              <input class="input is-medium" type="text" name="locationZip" placeholder="Zip" ngModel>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Blog Title</label>
-            <div class="control">
-              <input class="input is-medium" type="text" name="title" placeholder="Title" ngModel>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Text</label>
-            <div class="control">
-              <textarea class="textarea is-medium" name="text" placeholder="Text" ngModel></textarea>
-            </div>
-          </div>
-          <br>
-          <div class="control">
-            <button type="submit" class="button is-success has-text-weight-medium is-medium " >Send Message</button>
-          </div>
-        </div>
         </form>
       </div>
     </div>

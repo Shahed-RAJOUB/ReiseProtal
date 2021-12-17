@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {BlogEntry} from '../model/blog-entry';
 import {UserService} from '../service/user.service';
 import {Author} from '../model/author';
+import {Route, Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-view',
@@ -14,19 +15,19 @@ export class UserViewComponent implements OnInit {
   blogs$: Observable<BlogEntry[]> | undefined;
   Authors$: Observable<Author[]> | undefined;
 
-  constructor(public userService: UserService) {
+  constructor(private userService: UserService,
+              private router: Router) {
   }
-
-  status = false;
 
   ngOnInit(): void {
     this.blogs$ = this.userService.getBlogs();
     this.Authors$ = this.userService.getAuthors();
   }
 
-  //TODO: add fetch method by id
-  clickEvent(id: any): any {
-    this.status = !this.status;
+  openBlog(id: number | undefined): void {
+    if (id) {
+      this.router.navigate(['/blog', id]);
+    }
   }
 
 }

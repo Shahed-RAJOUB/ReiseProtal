@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CommonModule, NgLocaleLocalization, NgLocalization } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ViewBlogComponent } from './user-view/view-blog/view-blog.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     UserViewComponent,
     StatisticViewComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ViewBlogComponent
   ],
   imports: [
     BrowserModule,

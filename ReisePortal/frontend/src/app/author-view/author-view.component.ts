@@ -1,7 +1,10 @@
 import {Component} from '@angular/core';
 import {AuthorService} from '../service/author.service';
-import {BlogEntry} from '../model/blog-entry';
 import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
+import {Location} from '../model/location';
+import {Author} from '../model/author';
+import {Blog} from '../model/blog';
 
 @Component({
   selector: 'app-author-view',
@@ -10,28 +13,22 @@ import {Router} from '@angular/router';
 })
 export class AuthorViewComponent {
 
+  locations$: Observable<Location[]>;
+  authors$: Observable<Author[]>;
+
   constructor(private authorService: AuthorService,
               private router: Router) {
+    this.locations$ = authorService.getAllLocations();
+    this.authors$ = authorService.getAllAuthors();
   }
 
   onSendBlog(data: any) {
-    console.log(data);
     const blogEntry = {
-      blog: {
-        blogText: data.text,
-        blogTitle: data.title
-      },
-      author: {
-        authorEmail: data.email,
-        authorName: data.authorName
-      },
-      location: {
-        locationName: data.locationName,
-        locationCity: data.locationCity,
-        locationStreet: data.locationStreet,
-        locationZip: data.locationZip
-      }
-    } as BlogEntry;
+      authorId: data.authorId,
+      locationId: data.locationId,
+      blogText: data.text,
+      blogTitle: data.title,
+    } as Blog;
     this.authorService.sendBlog(blogEntry).subscribe(
       res => this.router.navigateByUrl('/user-view'),
       err => alert('Exception happened :('));

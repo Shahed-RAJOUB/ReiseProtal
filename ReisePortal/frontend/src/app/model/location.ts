@@ -1,7 +1,8 @@
-export class Location{
-  locationId?: number;
-  locationName?: string;
-  locationCity?: string;
-  locationStreet?: string;
-  locationZip?: number;
+export class Location {
+  constructor(public locationId: number,
+              public locationName: string,
+              public locationCity: string,
+              public locationStreet: string,
+              public locationZip: number) {
+  }
 }

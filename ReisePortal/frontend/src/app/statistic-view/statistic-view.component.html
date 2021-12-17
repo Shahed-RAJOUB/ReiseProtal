@@ -1,32 +1,32 @@
 <app-header></app-header>
 <br><br>
-<progress class="progress is-small is-primary" max="100">15%</progress>
-<nav *ngIf="blogStats$ | async as blogStats" class="level is-mobile">
-  <div  class="columns">
-    <div  *ngFor="let MonthlyLocationStatistics of blogStats.monthly">
-      <h2 class="subtitle is-4">Monthly Statistics:</h2>
+<div *ngIf="blogStats$ | async as blogStats" style="margin-left: 50px" class="is-mobile">
+  <div class="columns">
+    <h2 class="subtitle is-4" style="margin-right: 10px">Monthly Statistics:</h2>
+    <div *ngFor="let monthly of blogStats.monthly" style="margin-right: 10px">
       <article class="message is-dark">
         <div class="message-header">
-          <p>{{MonthlyLocationStatistics.name}}</p>
-          <button aria-label="delete" class="delete"></button>
+          <p>{{monthly.name}}</p>
         </div>
         <div class="message-body">
-          <p><strong>Number of Views</strong>{{MonthlyLocationStatistics.count}}</p>
-        </div>
-      </article>
-    </div>
-    <div *ngFor="let AllTimeLocationStatistics of blogStats.allTime">
-      <h2 class="subtitle is-4">AllTime Statistics:</h2>
-      <article class="message is-dark">
-        <div class="message-header">
-          <p>{{AllTimeLocationStatistics.name}}</p>
-          <button aria-label="delete" class="delete"></button>
-        </div>
-        <div class="message-body">
-          <p><strong>Number of Views</strong>{{AllTimeLocationStatistics.count}}</p>
+          <p><strong>Number of Views </strong>{{monthly.count}}</p>
         </div>
       </article>
     </div>
   </div>
-</nav>
+  <br> <br>
+  <div class="columns">
+    <h2 class="subtitle is-4" style="margin-right: 10px">AllTime Statistics:</h2>
+    <div *ngFor="let allTime of blogStats.allTime" style="margin-right: 10px">
+      <article class="message is-dark">
+        <div class="message-header">
+          <p>{{allTime.name}}</p>
+        </div>
+        <div class="message-body">
+          <p><strong>Number of Views </strong>{{allTime.count}}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
 <app-footer></app-footer>

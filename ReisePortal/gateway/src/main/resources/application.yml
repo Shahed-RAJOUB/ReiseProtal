@@ -1,20 +1,4 @@
 spring:
-  cloud:
-    gateway:
-      routes:
-        - id: AUTHOR-SERVICE
-          uri: lb://AUTHOR-SERVICE
-          predicates:
-            - Path=/api/authors/**
-        - id: BLOG-SERVICE
-          uri: lb://BLOG-SERVICE
-          predicates:
-            - Path=/api/blogs/**
-        - id: LOCATION-SERVICE
-          uri: lb://LOCATION-SERVICE
-          predicates:
-            - Path=/api/locations/**
-
   application:
     name: gateway
 

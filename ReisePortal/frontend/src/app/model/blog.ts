@@ -1,10 +1,11 @@
-export class Blog{
-  blogId?: number;
-  blogTitle?:string;
-  blogText?:string;
-  blogDate?:string;
-  blogNumberOfViews?:number;
-  authorId?:number;
-  locationId?:number;
+export class Blog {
+  constructor(public blogId: number,
+              public blogTitle: string,
+              public blogText: string,
+              public blogDate: string,
+              public blogNumberOfViews: number,
+              public authorId: number,
+              public locationId: number) {
+  }
 }
 

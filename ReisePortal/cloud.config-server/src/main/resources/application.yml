@@ -7,6 +7,7 @@ spring:
         git:
           uri: https://github.com/Shahed-RAJOUB/config-sever.git
           clone-on-start: true
+          force-pull: true
 
 server:
   port: 9094

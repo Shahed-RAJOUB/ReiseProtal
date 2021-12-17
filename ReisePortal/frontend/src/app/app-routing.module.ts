@@ -5,6 +5,7 @@ import {FooterComponent} from "./footer/footer.component";
 import {AuthorViewComponent} from "./author-view/author-view.component";
 import {UserViewComponent} from "./user-view/user-view.component";
 import {StatisticViewComponent} from "./statistic-view/statistic-view.component";
+import {ViewBlogComponent} from './user-view/view-blog/view-blog.component';
 
 const routes: Routes = [
   {path: 'header', component: HeaderComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'author-view', component: AuthorViewComponent},
   {path: 'user-view', component:UserViewComponent},
   {path: 'statistic-view', component: StatisticViewComponent},
+  {path: 'blog/:id', component: ViewBlogComponent},
   {path: '**', component: UserViewComponent},
 ];
 

@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+<section class="hero ">
+  <div class="hero-body">
+    <div class="container" *ngIf="blogEntry$ | async let blogEntry">
+      <h1>{{blogEntry.blog.blogTitle}}</h1>
+      <h3>{{blogEntry.author.authorName}}</h3>
+    </div>
+  </div>
+</section>
+
+
+<app-footer></app-footer>
