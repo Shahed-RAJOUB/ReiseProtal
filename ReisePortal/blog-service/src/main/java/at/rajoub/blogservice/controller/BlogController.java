@@ -1,7 +1,8 @@
 package at.rajoub.blogservice.controller;
 
+import at.rajoub.blogservice.entity.Blog;
 import at.rajoub.blogservice.model.BlogEntry;
-import at.rajoub.blogservice.model.BlogStats;
+import at.rajoub.blogservice.model.LocationStats;
 import at.rajoub.blogservice.service.BlogService;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
@@ -24,13 +25,13 @@ public class BlogController {
     private final BlogService blogService;
 
     @PostMapping("/")
-    public void saveBlogEntry(@RequestBody BlogEntry blogEntry) {
-        blogService.saveBlogEntry(blogEntry);
+    public void saveBlogEntry(@RequestBody Blog blog) {
+        blogService.saveBlogEntry(blog);
     }
 
     @GetMapping("/stats")
-    public List<BlogStats> getBlogStats() {
-        return blogService.getBlogStats();
+    public LocationStats getLocationStats() {
+        return blogService.getLocationStats();
     }
 
     @GetMapping("/{id}")

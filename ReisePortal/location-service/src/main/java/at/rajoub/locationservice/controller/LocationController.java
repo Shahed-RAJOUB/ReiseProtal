@@ -30,7 +30,7 @@ public class LocationController {
     }
 
     @GetMapping("/")
-    public List<Location> selectAllAuthors() {
+    public List<Location> selectAllLocations() {
         return locationService.selectAllLocations();
     }
 }

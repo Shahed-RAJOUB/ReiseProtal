@@ -5,8 +5,9 @@ import at.rajoub.blogservice.client.LocationServiceClient;
 import at.rajoub.blogservice.entity.Blog;
 import at.rajoub.blogservice.model.Author;
 import at.rajoub.blogservice.model.BlogEntry;
-import at.rajoub.blogservice.model.BlogStats;
 import at.rajoub.blogservice.model.Location;
+import at.rajoub.blogservice.model.LocationStat;
+import at.rajoub.blogservice.model.LocationStats;
 import at.rajoub.blogservice.repository.BlogRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.sleuth.annotation.NewSpan;
@@ -18,8 +19,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static java.util.Collections.emptyList;
-
 @Service
 @RequiredArgsConstructor
 public class BlogService {
@@ -28,14 +27,8 @@ public class BlogService {
     private final AuthorServiceClient authorServiceClient;
     private final LocationServiceClient locationServiceClient;
 
-    public void saveBlogEntry(BlogEntry blogEntry) {
-        Author author = authorServiceClient.saveAuthor(blogEntry.getAuthor());
-        Location location = locationServiceClient.saveLocation(blogEntry.getLocation());
-        blogRepository.save(blogEntry.getBlog().toBuilder()
-                .authorId(author.getAuthorId())
-                .locationId(location.getLocationId())
-                .blogDate(LocalDate.now())
-                .build());
+    public void saveBlogEntry(Blog blog) {
+        blogRepository.save(blog);
     }
 
     @NewSpan
@@ -70,31 +63,22 @@ public class BlogService {
                 .collect(Collectors.toList());
     }
 
-    public List<BlogStats> getBlogStats() {
-        Optional<Blog> topBlogOptional = blogRepository.findTopByBlogViewsMax();
-        if (topBlogOptional.isEmpty()) {
-            return emptyList();
-        }
-        Blog topBlog = topBlogOptional.orElseThrow();
-        return List.of(
-                BlogStats.builder()
-                        .type("popular_location")
-                        .stat("name", locationServiceClient.findLocationById(topBlog.getLocationId()).getLocationName())
-                        .stat("count", Long.valueOf(topBlog.getBlogNumberOfViews()).toString())
-                        .build(),
-                BlogStats.builder()
-                        .type("popular_blog")
-                        .stat("name", topBlog.getBlogTitle())
-                        .stat("author", authorServiceClient.findAuthorById(topBlog.getAuthorId()).getAuthorName())
-                        .stat("count", Long.valueOf(topBlog.getBlogNumberOfViews()).toString())
-                        .build(),
-                BlogStats.builder()
-                        .type("authors_registered")
-                        .stat("count", Integer.valueOf(authorServiceClient.getAllAuthors().size()).toString())
-                        .build(),
-                BlogStats.builder()
-                        .type("blog_visits")
-                        .stat("count", blogRepository.sumAllBlogViews().toString())
-                        .build());
+    public LocationStats getLocationStats() {
+        List<Location> locations = locationServiceClient.selectAllLocations();
+        List<LocationStat> allTime = blogRepository.findAllTimeLocationStats();
+        List<LocationStat> monthly = blogRepository.findCurrentMonthLocationStats(LocalDate.now().getYear(), LocalDate.now().getMonthValue());
+
+        return LocationStats.builder()
+                .allTime(locations.stream()
+                        .map(location -> allTime.stream().filter(it -> it.getLocationId().equals(location.getLocationId())).findFirst()
+                                .map(it -> it.toBuilder().name(location.getLocationName()).build())
+                                .orElseGet(() -> LocationStat.builder().name(location.getLocationName()).count(0).build()))
+                        .collect(Collectors.toList()))
+                .monthly(locations.stream()
+                        .map(location -> monthly.stream().filter(it -> it.getLocationId().equals(location.getLocationId())).findFirst()
+                                .map(it -> it.toBuilder().name(location.getLocationName()).build())
+                                .orElseGet(() -> LocationStat.builder().name(location.getLocationName()).count(0).build()))
+                        .collect(Collectors.toList()))
+                .build();
     }
 }
