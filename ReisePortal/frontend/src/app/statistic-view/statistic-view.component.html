@@ -1,41 +1,31 @@
 <app-header></app-header>
 <br><br>
 <progress class="progress is-small is-primary" max="100">15%</progress>
-<nav class="level is-mobile" *ngIf="blogStats$ | async as blogStats">
-  <div class="level-item has-text-centered">
-    <div *ngIf="getSpecificBlogStat('popular_location', blogStats) as popularLocation">
-      <p class="title has-text-grey">Most popular location</p>
-      <br>
-      <p class="has-text-weight-bold">Name: {{ popularLocation.name }}</p>
-      <p class="has-text-weight-bold">Blogs Count: {{ popularLocation.count }}</p>
-      <br>
+<nav *ngIf="blogStats$ | async as blogStats" class="level is-mobile">
+  <div  class="columns">
+    <div  *ngFor="let MonthlyLocationStatistics of blogStats.monthly">
+      <h2 class="subtitle is-4">Monthly Statistics:</h2>
+      <article class="message is-dark">
+        <div class="message-header">
+          <p>{{MonthlyLocationStatistics.name}}</p>
+          <button aria-label="delete" class="delete"></button>
+        </div>
+        <div class="message-body">
+          <p><strong>Number of Views</strong>{{MonthlyLocationStatistics.count}}</p>
+        </div>
+      </article>
     </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div *ngIf="getSpecificBlogStat('popular_blog', blogStats) as popularBlog">
-      <p class="title has-text-grey">Most popular blog</p>
-      <br>
-      <p class="has-text-weight-bold">Name: {{ popularBlog.name }}</p>
-      <p class="has-text-weight-bold">Author: {{ popularBlog.author }}</p>
-      <p class="has-text-weight-bold">Views: {{ popularBlog.count }}</p>
-    </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div *ngIf="getSpecificBlogStat('blog_visits', blogStats) as blogVisits">
-      <p class="title has-text-grey">Blogs view count</p>
-      <br>
-      <p class="has-text-weight-bold">{{ blogVisits.count }}</p>
-      <br>
-      <br>
-    </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div *ngIf="getSpecificBlogStat('authors_registered', blogStats) as authorsRegistered">
-      <p class="title has-text-grey">Authors registered</p>
-      <br>
-      <p class="has-text-weight-bold">{{ authorsRegistered.count }}</p>
-      <br>
-      <br>
+    <div *ngFor="let AllTimeLocationStatistics of blogStats.allTime">
+      <h2 class="subtitle is-4">AllTime Statistics:</h2>
+      <article class="message is-dark">
+        <div class="message-header">
+          <p>{{AllTimeLocationStatistics.name}}</p>
+          <button aria-label="delete" class="delete"></button>
+        </div>
+        <div class="message-body">
+          <p><strong>Number of Views</strong>{{AllTimeLocationStatistics.count}}</p>
+        </div>
+      </article>
     </div>
   </div>
 </nav>

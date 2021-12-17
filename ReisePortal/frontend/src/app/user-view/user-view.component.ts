@@ -24,7 +24,7 @@ export class UserViewComponent implements OnInit {
     this.Authors$ = this.userService.getAuthors();
   }
 
-  //TODO: add date and add update function for review
+  //TODO: add fetch method by id
   clickEvent(id: any): any {
     this.status = !this.status;
   }

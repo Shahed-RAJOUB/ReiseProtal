@@ -21,7 +21,7 @@ export class UserService {
     return this.http.get<Author[]>('/api/authors/');
   }
 
-  getBlogStats(): Observable<BlogStats[]> {
-    return this.http.get<BlogStats[]>('/api/blogs/stats');
+  getBlogStats(): Observable<BlogStats> {
+    return this.http.get<BlogStats>('/api/blogs/stats');
   }
 }
