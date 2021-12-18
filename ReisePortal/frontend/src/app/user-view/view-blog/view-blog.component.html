@@ -3,8 +3,25 @@
 <section class="hero ">
   <div class="hero-body">
     <div class="container" *ngIf="blogEntry$ | async let blogEntry">
-      <h1>{{blogEntry.blog.blogTitle}}</h1>
-      <h3>{{blogEntry.author.authorName}}</h3>
+      <div class="tab-pane is-active" id="pane-2">
+        <div class="content">
+          <h1><strong>{{blogEntry.blog.blogTitle}}</strong></h1>
+          <br>
+          <h2>By {{blogEntry.author.authorName}} | {{blogEntry.author.authorEmail}}</h2>
+          <h4>{{blogEntry.blog.blogDate}}</h4>
+          <br>
+          <p>
+            {{blogEntry.blog.blogText}}
+          </p>
+          <br><br><br>
+          <h2>Location: <strong>{{blogEntry.location.locationName}}</strong></h2>
+          <p>
+            Address: {{blogEntry.location.locationCity}}, {{blogEntry.location.locationStreet}}, {{blogEntry.location.locationZip}}
+          </p>
+          <br><br>
+          <p><em>This blogs is viewed by {{blogEntry.blog.blogNumberOfViews}} person(s) 🖤</em></p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

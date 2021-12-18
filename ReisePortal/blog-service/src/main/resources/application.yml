@@ -3,7 +3,7 @@ spring:
     name: blog-service
 
 server:
-  port: 9092
+  port: 9095
 
 resilience4j:
   circuitbreaker:
