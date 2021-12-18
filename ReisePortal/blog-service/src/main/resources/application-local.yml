@@ -17,3 +17,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQL81Dialect
   zipkin:
     base-url: http://127.0.0.1:9411/
+
+app:
+  provision:
+    centPerView: 10

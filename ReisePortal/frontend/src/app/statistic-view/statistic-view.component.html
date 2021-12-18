@@ -1,32 +1,44 @@
 <app-header></app-header>
 <br><br>
-<div *ngIf="blogStats$ | async as blogStats" style="margin-left: 50px" class="is-mobile">
-  <div class="columns">
-    <h2 class="subtitle is-4" style="margin-right: 10px">Monthly Statistics:</h2>
-    <div *ngFor="let monthly of blogStats.monthly" style="margin-right: 10px">
-      <article class="message is-dark">
-        <div class="message-header">
-          <p>{{monthly.name}}</p>
+
+<section class="hero ">
+  <div class="hero-body">
+    <div *ngIf="blogStats$ | async as blogStats" class="container is-fullhd">
+      <div class="tile is-ancestor">
+        <div class="tile is-6 is-vertical is-parent">
+          <div class="tile is-child box">
+            <p class="title">Monthly Statistics:</p>
+            <div *ngFor="let monthly of blogStats.monthly" style="margin-right: 10px">
+              <article class="message is-dark">
+                <div class="message-header">
+                  <p>{{monthly.name}}</p>
+                </div>
+                <div class="message-body">
+                  <p><strong>Number of Views: </strong>{{monthly.count}}</p>
+                </div>
+              </article>
+            </div>
+            <br>
+          </div>
         </div>
-        <div class="message-body">
-          <p><strong>Number of Views </strong>{{monthly.count}}</p>
+        <div class="tile is-parent is-6">
+          <div class="tile is-child box">
+            <p class="title">AllTime Statistics:</p>
+            <div *ngFor="let allTime of blogStats.allTime" style="margin-right: 10px">
+              <article class="message is-dark">
+                <div class="message-header">
+                  <p>{{allTime.name}}</p>
+                </div>
+                <div class="message-body">
+                  <p><strong>Number of Views: </strong>{{allTime.count}}</p>
+                </div>
+              </article>
+            </div>
+            <br>
+          </div>
         </div>
-      </article>
+      </div>
     </div>
   </div>
-  <br> <br>
-  <div class="columns">
-    <h2 class="subtitle is-4" style="margin-right: 10px">AllTime Statistics:</h2>
-    <div *ngFor="let allTime of blogStats.allTime" style="margin-right: 10px">
-      <article class="message is-dark">
-        <div class="message-header">
-          <p>{{allTime.name}}</p>
-        </div>
-        <div class="message-body">
-          <p><strong>Number of Views </strong>{{allTime.count}}</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</div>
+</section>
 <app-footer></app-footer>

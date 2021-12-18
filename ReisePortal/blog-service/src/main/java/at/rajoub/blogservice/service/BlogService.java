@@ -8,7 +8,9 @@ import at.rajoub.blogservice.model.BlogEntry;
 import at.rajoub.blogservice.model.Location;
 import at.rajoub.blogservice.model.LocationStat;
 import at.rajoub.blogservice.model.LocationStats;
+import at.rajoub.blogservice.model.ViewMessage;
 import at.rajoub.blogservice.repository.BlogRepository;
+import at.rajoub.blogservice.service.kafka.KafkaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.sleuth.annotation.NewSpan;
 import org.springframework.cloud.sleuth.annotation.SpanTag;
@@ -26,6 +28,7 @@ public class BlogService {
     private final BlogRepository blogRepository;
     private final AuthorServiceClient authorServiceClient;
     private final LocationServiceClient locationServiceClient;
+    private final KafkaService kafkaService;
 
     public void saveBlogEntry(Blog blog) {
         blogRepository.save(blog.toBuilder()
@@ -42,6 +45,10 @@ public class BlogService {
 
         Author author = authorServiceClient.findAuthorById(blog.orElseThrow().getAuthorId());
         Location location = locationServiceClient.findLocationById(blog.orElseThrow().getLocationId());
+
+        kafkaService.sendMessage(ViewMessage.builder()
+                .blogId(blogId)
+                .build());
 
         return Optional.of(BlogEntry.builder()
                 .blog(blog.orElseThrow())
